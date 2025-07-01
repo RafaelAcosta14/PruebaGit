@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificador de Edad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f0f8ff;
+            text-align: center;
+        }
+
+        input, button {
+            font-size: 18px;
+            margin: 10px;
+            padding: 8px 12px;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nino {
+            color: #3498db; /* azul */
+        }
+
+        .adolescente {
+            color: #8e44ad; /* morado */
+        }
+
+        .adulto {
+            color: #27ae60; /* verde */
+        }
+
+        .adulto-mayor {
+            color: #e67e22; /* naranja */
+        }
+
+        .error {
+            color: #e74c3c; /* rojo */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Clasificador de Edad</h1>
+
+    <input type="number" id="edad" placeholder="Ingresa tu edad" min="0">
+    <br>
+    <button onclick="clasificarEdad()">Clasificar</button>
+
+    <p id="resultado"></p>
+
+    <script>
+        function clasificarEdad() {
+            const inputEdad = document.getElementById("edad").value;
+            const resultado = document.getElementById("resultado");
+
+            // Limpiar clases anteriores
+            resultado.className = "";
+
+            if (inputEdad === "" || inputEdad < 0) {
+                resultado.textContent = "Por favor, ingresa una edad válida.";
+                resultado.classList.add("error");
+                return;
+            }
+
+            const edad = parseInt(inputEdad);
+
+            if (edad < 13) {
+                resultado.textContent = "Eres un niño.";
+                resultado.classList.add("nino");
+            } else if (edad >= 13 && edad <= 17) {
+                resultado.textContent = "Eres un adolescente.";
+                resultado.classList.add("adolescente");
+            } else if (edad >= 18 && edad <= 59) {
+                resultado.textContent = "Eres un adulto.";
+                resultado.classList.add("adulto");
+            } else {
+                resultado.textContent = "Eres un adulto mayor.";
+                resultado.classList.add("adulto-mayor");
+            }
+        }
+    </script>
+
+</body>
+</html>

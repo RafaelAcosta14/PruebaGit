@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario con Eventos en JavaScript</title>
+   
+</head>
+
+<body onload="console.log('Pagina cargada (onLoad)')">
+    <h2>Registro</h2>
+
+    <form id="Formulario">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" placeholder="Tu nombre"><br><br>
+
+        <label>Contraseña:</label>
+        <input type="Password" id="Password"><br><br>
+
+        <label>Genero:</label>
+        <input type="radio" name="genero" value="Masculino"> Masculino
+        <input type="radio" name="genero" value="Femenino"> Femenino<br><br>
+
+        <label>Intereses:</label>
+        <input type="checkbox" id="musica"> musica
+        <input type="checkbox" id="deporte"> deporte<br><br>
+
+        <label>Pais:</label>
+        <select id="Pais">
+            <option value="">Selecciona</option>
+            <option value="mx">Mexico</option>
+            <option value="ar">Argentina</option>
+         </select>
+
+            <label>Comentarios:</label>
+            <textarea id="comentario" rows="3" cols="30"></textarea><br><br>
+
+            <button type="button" id="boton">Haz clic</button>
+            <input type="submit" value="Enviar">
+
+    </form>
+
+    <script>
+        //Evento clic
+        document.getElementById("boton").addEventListener("clic", () => {
+            alert("¡Boton clickeado!");
+        })
+
+        //Evento submit
+        document.getElementById("Formulario").addEventListener("submit", (e) => {
+            e.preventDefault();
+            alert("Formulario enviado (pero con preventDefault)");
+        });
+
+        //Evento change en Select
+        document.getElementById("pais").addEventListener("change", (e) => {
+            console.log("Cambiaste a:", e.target.value);
+        });
+
+        //Eventos focus y blur en input
+        let nombre = document.getElementById("nombre");
+        nombre.addEventListener("focus", () => console.log("Nombre: foco activado"));
+        nombre.addEventListener("blur", () => console.log("Nombre: saliste del campo"));
+
+        //Evento keydown en password
+        document.getElementById("password").addEventListener("keydown", (e) => {
+            console.log("Presionaste la tecla:", e.key);
+        });
+
+        //Evento mouseover
+        document.getElementById("comentario").addEventListener("mouseover", () => {
+            console.log("Estas sobre el textarea");
+        });
+
+
+    </script>
+    
+</body>
+</html>

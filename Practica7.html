@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Funcional</title>
+  <link rel="stylesheet" href="Practica7.css">
+</head>
+<body>
+  <div class="calculadora">
+    <div class="pantalla" id="resultado">0</div>
+    
+    <div class="fila">
+      <button onclick="borrarTodo()">C</button>
+      <button onclick="operar('%')">%</button>
+      <button onclick="operar('++')">++</button>
+      <button onclick="operar('--')">--</button>
+    </div>
+    
+    <div class="fila">
+      <button onclick="insertar('7')">7</button>
+      <button onclick="insertar('8')">8</button>
+      <button onclick="insertar('9')">9</button>
+      <button onclick="operar('/')">/</button>
+    </div>
+    
+    <div class="fila">
+      <button onclick="insertar('4')">4</button>
+      <button onclick="insertar('5')">5</button>
+      <button onclick="insertar('6')">6</button>
+      <button onclick="operar('*')">*</button>
+    </div>
+    
+    <div class="fila">
+      <button onclick="insertar('1')">1</button>
+      <button onclick="insertar('2')">2</button>
+      <button onclick="insertar('3')">3</button>
+      <button onclick="operar('-')">-</button>
+    </div>
+    
+    <div class="fila">
+      <button onclick="insertar('0')">0</button>
+      <button onclick="insertar('.')">.</button>
+      <button onclick="calcular()">=</button>
+      <button onclick="operar('+')">+</button>
+    </div>
+  </div>
+
+  <script>
+    let operacion = "";
+    let operador = "";
+
+    function insertar(valor) {
+      const pantalla = document.getElementById("resultado");
+      if (pantalla.textContent === "0" || pantalla.textContent === "Error") {
+        pantalla.textContent = valor;
+      } else {
+        pantalla.textContent += valor;
+      }
+    }
+
+    function operar(op) {
+      const pantalla = document.getElementById("resultado");
+
+      if (op === "++") {
+        const val = parseFloat(pantalla.textContent);
+        pantalla.textContent = val + 1;
+      } else if (op === "--") {
+        const val = parseFloat(pantalla.textContent);
+        pantalla.textContent = val - 1;
+      } else {
+        operacion = pantalla.textContent;
+        operador = op;
+        pantalla.textContent += " " + op + " ";
+      }
+    }
+
+    function calcular() {
+      const pantalla = document.getElementById("resultado");
+      try {
+        const partes = pantalla.textContent.split(" ");
+        if (partes.length < 3) {
+          pantalla.textContent = "Error";
+          return;
+        }
+
+        const num1 = parseFloat(partes[0]);
+        const op = partes[1];
+        const num2 = parseFloat(partes[2]);
+        let res;
+
+        switch (op) {
+          case "+": res = num1 + num2; break;
+          case "-": res = num1 - num2; break;
+          case "*": res = num1 * num2; break;
+          case "/": res = num2 !== 0 ? num1 / num2 : "Error"; break;
+          case "%": res = num1 % num2; break;
+          default: res = "Error";
+        }
+
+        pantalla.textContent = res;
+      } catch {
+        pantalla.textContent = "Error";
+      }
+    }
+
+    function borrarTodo() {
+      document.getElementById("resultado").textContent = "0";
+      operacion = "";
+      operador = "";
+    }
+  </script>
+</body>
+</html>
+
+

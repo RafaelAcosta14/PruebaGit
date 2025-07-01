@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro de Proveedores</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2d3436;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #4e54c8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5a62e3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Registro de Proveedor</h2>
+
+    <form>
+      <label for="nombre">Nombre del proveedor:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ej. Distribuidora Sol S.A. de C.V.">
+
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" placeholder="proveedor@correo.com">
+
+      <label for="telefono">Número de teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" placeholder="Ej. 5551234567">
+
+      <label for="direccion">Dirección:</label>
+      <textarea id="direccion" name="direccion" rows="3" placeholder="Calle, número, colonia, ciudad..."></textarea>
+
+      <label for="tipo">Tipo de proveedor:</label>
+      <select id="tipo" name="tipo">
+        <option value="">Seleccione una opción</option>
+        <option value="materia prima">Materia Prima</option>
+        <option value="servicios">Servicios</option>
+        <option value="tecnología">Tecnología</option>
+        <option value="otros">Otros</option>
+      </select>
+
+      <button type="submit">Registrar proveedor</button>
+    </form>
+  </div>
+
+</body>
+</html>

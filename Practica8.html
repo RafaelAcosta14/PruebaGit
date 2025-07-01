@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejemplo JavaScript Completo</title>
+</head>
+<body>
+
+    <h1 id="titulo">Bienvenido</h1>
+    <button onclick="personalizarSaludo()">Personalizar saludo</button>
+
+    <script>
+        // 1. Variable global por defecto
+        let nombreGlobal = "Invitado";
+
+        // 2. Mostrar alerta al cargar la página
+        window.onload = function() {
+            alert("¡Bienvenido a nuestra página web!");
+        };
+
+        // 3. Función principal para personalizar el saludo
+        function personalizarSaludo() {
+            const deseaIngresar = confirm("¿Deseas ingresar tu nombre?");
+
+            let nombreUsuario = nombreGlobal;
+
+            if (deseaIngresar) {
+                const nombreIngresado = prompt("¿Cuál es tu nombre?", "Escribe tu nombre");
+
+                // Validar si ingresó algo o canceló
+                if (nombreIngresado && nombreIngresado.trim() !== "") {
+                    nombreUsuario = nombreIngresado.trim();
+                }
+            }
+
+            const saludo = generarSaludo(nombreUsuario);
+            mostrarSaludo(saludo);
+        }
+
+        // 4. Función para generar el mensaje
+        function generarSaludo(nombre) {
+            return `Hola, ${nombre} 👋 Bienvenido a JavaScript tu mero lugar de confianza`;
+        }
+
+        // 5. Función para mostrar el saludo en el <h1>
+        function mostrarSaludo(mensaje) {
+            const titulo = document.getElementById("titulo");
+            titulo.textContent = mensaje;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+/*
+p{
+    color:rgb(126, 196, 237);
+    font-size: 20px;
+}
+
+p{
+    color:blue;
+}
+
+.destacado{
+    background-color: yellow;
+}
+
+#principal{
+    font-size: 24px;
+    color:green
+}
+
+html{
+    font-family: sans-serif;
+}
+
+h1,h2,h3{
+    text-transform: uppercase;
+}
+
+div p{
+    color: yellow;
+}
+
+h2 + p{
+    color:blue;
+}
+
+h2 ~ p{
+    background-color: yellow;
+}
+*/
+input[type="password"]{
+    border: 2px solid red;
+}
+

@@ -1,0 +1,91 @@
+<!--<html></html>
+<head>
+
+    <title>Test</title>
+</head>
+<body>
+    <h1 id="Titulo">Titulo</h1>
+     
+    <script>
+      document.getElementById("Titulo").style.color = "red";
+      document.getElementById("Titulo").style.fontSize = "30px";
+    </script>
+</body>
+</html>-->
+
+<!--
+<html>
+<head>
+
+    <title>Test</title>
+</head>
+<body>
+    <button id="boton"> Haz clic</button>
+     
+    <script>
+      document.getElementById("boton").addEventListener("click",function(){
+        alert("Boton presionado!");
+      });
+      
+      let nuevoParrafo = document.createElement("p");
+      nuevoParrafo.textContent = "Soy un nuevo parrafo";
+
+      document.body.appendChild(nuevoParrafo);
+
+      let elemento = document.getElementById("mensaje");
+      elemento.remove();
+      
+    </script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #miParrafo{
+            color: blue;
+            font-size: 20px;
+        }
+
+        button{ 
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!--Parrafo a modificar-->
+    <p id="miParrafo">PRESIONAME Y CAMBIA EL TEXTO</p>
+
+    <!--Boton que ejecutara la funcion de cambiar el texto-->
+    <button onclick="Cambiartexto()">Haz clic para cambiar el texto</button>
+
+    <script>
+        //Funcion que cambia el texto y color del parrafo
+        function Cambiartexto(){
+            //Obtener el elemento por su ID
+            const parrafo = document.getElementById('miParrafo');
+
+            //Cambiar el texto
+            parrafo.textContent = "¡Hola mundo!";
+
+            //Cambiar el color
+            parrafo.style.color = "red";
+        }
+    </script>
+
+
+    
+</body>
+</html>

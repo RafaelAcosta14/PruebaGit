@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - Curso de Cocina Saludable</title>
+    <link rel="Stylesheet" href="Practica.css">
+    <style>
+        body {
+            background-color: #33bb33; /* Verde lima */
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curso Intensivo de Cocina Saludable</h1>
+        <p>Explora los sabores nutritivos desde casa</p>
+
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Temario</a></li>
+                <li><a href="#">Horarios</a></li>
+                <li><a href="#">Registro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2>Sobre el Curso</h2>
+            <img src="platillos-nutritivos.jpeg" alt="Platillo saludable" width="250">
+            <p>Este curso te enseñará a preparar platillos saludables, equilibrados y deliciosos que puedes incorporar en tu rutina diaria.</p>
+            <p>Desde desayunos energéticos hasta cenas ligeras, mejorarás tu alimentación de forma sencilla y con ingredientes accesibles.</p>
+
+            <h2>Temario del Curso</h2>
+            <ol>
+                <li>Nutrición Básica</li>
+                <li>Desayunos Saludables</li>
+                <li>Comidas Balanceadas</li>
+                <li>Snacks y Postres Light</li>
+            </ol>
+
+            <h2>Horarios Semanales</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes</th>
+                        <th>Miércoles</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10:00 - 11:00</td>
+                        <td>Nutrición Básica</td>
+                        <td>Desayunos Saludables</td>
+                        <td>Snacks Light</td>
+                    </tr>
+                    <tr>
+                        <td>11:00 - 12:00</td>
+                        <td>Comidas Balanceadas</td>
+                        <td>Postres Light</td>
+                        <td>Repaso General</td>
+                    </tr>
+                </tbody>
+            </table>
+        </article>
+
+        <!-- Imagen alineada a la izquierda -->
+        <div style="text-align: left; margin: 20px 0;">
+            <img src="curso-cocina.jpeg" alt="Clase de cocina saludable" width="300" style="float: left; margin-right: 20px;">
+        </div>
+
+        <section>
+            <h2>Formulario de Registro</h2>
+            <form method="POST" action="/registrar">
+                <label for="nombre">Nombre completo:</label><br>
+                <input type="text" id="nombre" name="nombre"><br><br>
+
+                <label for="email">Correo electrónico:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="telefono">Teléfono:</label><br>
+                <input type="tel" id="telefono" name="telefono"><br><br>
+
+                <button type="submit">Registrarse</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Curso de Cocina Saludable de Rafa. Todos los derechos reservados y prohibida su copia o hay tabla.</p>
+    </footer>
+</body>
+</html>

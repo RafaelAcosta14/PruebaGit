@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi pagina mamalona</title>
+
+    <style>
+        /* 1. Selector de etiqueta */
+        h1 {
+            color: navy;
+            text-align: center;
+        }
+
+        /* 2. Selector de clase */
+        .importante {
+            color: red;
+            font-weight: bold;
+        }
+
+        /* 3. Selector de ID */
+        #especial {
+            background-color: lightyellow;
+            padding: 10px;
+            border: 2px solid orange;
+        }
+
+        /* 4. Selector universal */
+        * {
+            font-family: Arial, sans-serif;
+        }
+
+        /* 5. Selector de grupo */
+        h2, h3 {
+            color: darkgreen;
+        }
+
+        /* 6. Selector de descendiente */
+        table th {
+            background-color: #f2f2f2;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><b>Aprendiendo HTML</b> (Esto es h1)</h1>
+    <p>Una introduccion al mundo HTML.</p>
+
+    <h2 class="importante">¿Que son los encabezados? (Esto es h2)</h2>
+    <p id="especial">Los encabezados definidos por las etiquetas h1 a h6, son fundamentales para crear una estructura lógica y navegable en un documento web.</p>
+
+    <h3>¿Que es h1? (Esto es h3)</h3>
+    <p>Representa el título principal de la página. Es el nivel más alto de la jerarquía.</p>
+
+    <h2>Lista de compra</h2>
+    <ul>
+        <li>Leche</li>
+        <li>Pan</li>
+        <li>Huevos</li>
+    </ul>
+
+    <h2>Receta de tortillas</h2>
+    <ol>
+        <li>Batir los huevos en un bol</li>
+        <li>Calentar aceite en una sartén</li>
+        <li>Verter los huevos batidos en la sartén</li>
+        <li>Cocinar hasta que esté cuajada</li>
+    </ol>
+
+    <table>
+        <caption>Horario Semanal - 5° Semestre</caption>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Miércoles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>09:00 - 11:00</th>
+                <td>Matemáticas</td>
+                <td>Historia</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">Las clases de laboratorio requieren bata</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <img src="OIP (1).jpeg" alt="Caja gris de 150x150 pixeles como imagen de ejemplo" width="150" height="150">
+</body>
+</html>

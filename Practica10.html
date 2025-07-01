@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario con eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #10a1ea;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+        }
+        #resumen {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #d0f0d0;
+            border: 1px solid #8bc98b;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="titulo">Formulario de Registro</h1>
+
+    <form id="registroForm">
+        <label>Nombre:
+            <input type="text" id="nombre" name="nombre">
+            <span class="error" id="errorNombre"></span>
+        </label>
+
+        <label>Contraseña:
+            <input type="password" id="contrasena" name="contrasena">
+            <span class="error" id="errorContrasena"></span>
+        </label>
+
+        <label>País:
+            <select id="pais">
+                <option value="">Seleccione su país</option>
+                <option value="México">México</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Argentina">Argentina</option>
+                <option value="España">España</option>
+            </select>
+            <span class="error" id="errorPais"></span>
+        </label>
+
+        <label>Género:
+            <input type="radio" name="genero" value="hombre"> Hombre
+            <input type="radio" name="genero" value="mujer"> Mujer
+            <input type="radio" name="genero" value="otro"> Otro
+            <span class="error" id="errorGenero"></span>
+        </label>
+
+        <label>Intereses:
+            <input type="checkbox" name="intereses" value="Música"> Música
+            <input type="checkbox" name="intereses" value="Deportes"> Deportes
+            <input type="checkbox" name="intereses" value="Tecnología"> Tecnología
+            <span class="error" id="errorIntereses"></span>
+        </label>
+
+        <label>Comentario:
+            <textarea id="comentario" rows="3" cols="40"></textarea>
+        </label>
+
+        <br>
+        <button type="submit">Enviar</button>
+        <button type="button" onclick="limpiarFormulario()">Limpiar</button>
+    </form>
+
+    <div id="resumen"></div>
+
+    <script>
+        const form = document.getElementById('registroForm');
+        const nombre = document.getElementById('nombre');
+        const contrasena = document.getElementById('contrasena');
+        const pais = document.getElementById('pais');
+        const comentario = document.getElementById('comentario');
+        const resumen = document.getElementById('resumen');
+
+        // Eventos de enfoque
+        nombre.addEventListener('focus', () => {
+            document.getElementById('errorNombre').textContent = "Ingresa tu nombre completo.";
+        });
+        nombre.addEventListener('blur', () => {
+            if (nombre.value.trim() === "") {
+                document.getElementById('errorNombre').textContent = "El nombre es obligatorio.";
+            } else {
+                document.getElementById('errorNombre').textContent = "";
+            }
+        });
+
+        contrasena.addEventListener('input', () => {
+            if (contrasena.value.length < 6) {
+                document.getElementById('errorContrasena').textContent = "Debe tener al menos 6 caracteres.";
+            } else {
+                document.getElementById('errorContrasena').textContent = "";
+            }
+        });
+
+        pais.addEventListener('change', () => {
+            document.getElementById('errorPais').textContent = pais.value ? "" : "Selecciona un país.";
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const nombreVal = nombre.value.trim();
+            const passVal = contrasena.value;
+            const paisVal = pais.value;
+            const generoElems = document.querySelectorAll('input[name="genero"]');
+            const interesesElems = document.querySelectorAll('input[name="intereses"]:checked');
+            const generoVal = Array.from(generoElems).find(r => r.checked)?.value;
+            const comentarioVal = comentario.value.trim();
+
+            let valido = true;
+
+            if (!nombreVal) {
+                document.getElementById('errorNombre').textContent = "El nombre es obligatorio.";
+                valido = false;
+            }
+
+            if (passVal.length < 6) {
+                document.getElementById('errorContrasena').textContent = "Debe tener al menos 6 caracteres.";
+                valido = false;
+            }
+
+            if (!generoVal) {
+                document.getElementById('errorGenero').textContent = "Selecciona tu género.";
+                valido = false;
+            } else {
+                document.getElementById('errorGenero').textContent = "";
+            }
+
+            if (interesesElems.length === 0) {
+                document.getElementById('errorIntereses').textContent = "Selecciona al menos un interés.";
+                valido = false;
+            } else {
+                document.getElementById('errorIntereses').textContent = "";
+            }
+
+            if (!paisVal) {
+                document.getElementById('errorPais').textContent = "Selecciona tu país.";
+                valido = false;
+            }
+
+            if (valido) {
+                let intereses = Array.from(interesesElems).map(cb => cb.value).join(" y ");
+                resumen.innerHTML = `
+                    <h3>¡Gracias, ${nombreVal}!</h3>
+                    <p>Te registraste como <b>${generoVal}</b> interesad@ en <b>${intereses}</b> desde <b>${paisVal}</b>.</p>
+                    <p><i>Comentario:</i> "${comentarioVal}"</p>
+                `;
+            }
+        });
+
+        function limpiarFormulario() {
+            form.reset();
+            resumen.innerHTML = "";
+            document.querySelectorAll('.error').forEach(span => span.textContent = "");
+        }
+    </script>
+</body>
+</html>

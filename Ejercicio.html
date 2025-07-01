@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practica</title>
+</head>
+<body>
+    <h1 id="titulo">¡Bienvenidos!</h1>
+    <button onclick="iniciar()">Haz clic aquí</button>
+
+    <script>
+        // Variable global
+        var mensajeGlobal = "Hola desde la variable global";
+
+        // Mostrar mensaje al cargar la página
+        window.onload = function() {
+            alert("Bienvenido a la práctica de JavaScript");
+        };
+
+        // Función principal
+        function iniciar() {
+            // Cuadro de diálogo: Confirmación
+            let confirmar = confirm("¿Quieres ver el mensaje secreto?");
+
+            if (confirmar) {
+                alert(mensajeGlobal);
+            } else {
+                alert("Está bien, otro día será");
+            }
+
+            // Cuadro de diálogo: Prompt
+            let nombre = prompt("¿Cuál es tu nombre?", "Escribe tu nombre");
+            if (nombre) {
+                alert("Hola " + nombre + ", ¡Bienvenido!");
+            } else {
+                alert("No proporcionaste un nombre");
+            }
+        }
+    </script>
+</body>
+</html>
